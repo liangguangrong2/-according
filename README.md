@@ -1,4 +1,4 @@
-# pre_music
+# musicvue
 
 ## Project setup
 ```

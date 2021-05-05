@@ -1,32 +1,42 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+      <div class="main">
+          <!-- 顶部组件 -->
+          <header-navs v-if="!$route.meta.headerflag"></header-navs>
+          
+          <!-- 路由视图 -->
+          <router-view></router-view>
+
+          <!-- 播放音乐 -->
+          <player></player>
+      </div>
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import headerNavs from "./components/base/headerNavs"
+import player from "./components/base/player";
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  data() {
+    return {
+      headerflag: true,
     }
-  }
+  },
+  components:{
+      headerNavs,
+      player
+  },
+  
 }
+</script>
+
+<style lang="less">
+// @import "./assets/css/base.css";
+html,body,#app{
+    width: 100%;
+    height: 100%;
+}
+
+
 </style>
